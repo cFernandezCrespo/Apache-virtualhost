@@ -1,0 +1,44 @@
+# contenedor de apache
+services:
+  web:
+    container_name: docker_web_1
+    image: httpd:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./paginas:/usr/local/apache2/htdocs
+      - ./conf:/usr/local/apache2/conf
+    networks:
+      red:
+        ipv4_address: 192.168.1.2
+  bind9:
+        image: ubuntu/bind9
+        container_name: asir_apache_dns
+        ports:
+          - "53:53/tcp"
+          - "53:53/udp"
+        networks:
+          red:
+            ipv4_address: 192.168.1.1
+        volumes:
+          - ./conf:/etc/bind
+          - ./zonas:/var/lib/bind
+
+  cliente:
+    container_name: cliente_web
+    image: ubuntu
+    platform: linux/amd64
+    tty: true
+    stdin_open: true
+    networks:
+      red: 
+        ipv4_address: 192.168.1.3
+    dns:
+      - 192.168.1.1
+
+networks:
+  red: 
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.254

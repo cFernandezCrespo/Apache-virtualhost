@@ -1,0 +1,18 @@
+options {
+	directory "/var/cache/bind";
+
+	forwarders {
+		208.67.222.222;
+		208.67.220.220;
+	 	8.8.8.8;
+		1.1.1.1;
+	 };
+	 forward only;
+
+	listen-on { any; };
+	listen-on-v6 { any; };
+
+	allow-query {
+		any;
+	};
+};
