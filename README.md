@@ -53,6 +53,19 @@ networks:
         - subnet: 192.168.1.0/24
           gateway: 192.168.1.254
 ~~~
+Ahora en el httpd.conf añadiremos unas lineas
+
+~~~
+NameVirtualHost *:80
+<VirtualHost *:80>
+    ServerName www.fabulasoscuras.int
+    DocumentRoot /usr/local/apache2/htdocs/www1
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName www.fabulasmaravillosas.int
+    DocumentRoot /usr/local/apache2/htdocs/www2
+</VirtualHost>
+~~~
 
 Aqui ya tendremos para lanzar nuestros 2 clientes y nuestro apache junto con la red, pero nos falta unos cuantos documentos mas, los named.conf.options y named.conf.default-zones seran iguales que en anteriores practicas, pero nuestro named.conf.local sera ligeramente distinto.
 ~~~
@@ -113,3 +126,9 @@ Con todo esto creado solo tendriamos que lanzar el docker compose up y ya estari
 ![imagen cuarto dig](imagenes/Screenshot_ 20231121_163937.png)
 
 y con esto tenemos comprobado que todo funciona correctamente y con esto la practica estaria lista.
+
+tambien para ver que va bien utilizaremos el siguiente comando para ver que funcione 
+
+~~~
+lynx www.fabulasmaravillosas.int
+~~~
