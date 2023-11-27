@@ -23,6 +23,8 @@ services:
         volumes:
           - ./conf:/etc/bind
           - ./zonas:/var/lib/bind
+        dns:
+          - 192.168.1.1
 
   cliente:
     container_name: cliente_web

@@ -110,6 +110,6 @@ Con todo esto creado solo tendriamos que lanzar el docker compose up y ya estari
 ![imagen primer dig](imagenes/Screenshot_20231121_163847.png)
 ![imagen segundo dig](imagenes/Screenshot_20231121_163900.png)
 ![imagen tercero dig](imagenes/Screenshot_20231121_163925.png)
-![imagen cuarto dig](imagenes/Screenshot_20231121_163937.png)
+![imagen cuarto dig](imagenes/Screenshot_ 20231121_163937.png)
 
 y con esto tenemos comprobado que todo funciona correctamente y con esto la practica estaria lista.
